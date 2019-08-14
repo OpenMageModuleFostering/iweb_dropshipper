@@ -64,7 +64,9 @@ class Iweb_Dropshipper_Model_Product extends Mage_Core_Model_Abstract
     }
     
     public function getDropshipper($product){
-        $dropShipperData = Mage::getModel('iweb_dropshipper/product')->load($product->getId(), 'product_id');
+        $dropShipperData = Mage::getModel('iweb_dropshipper/product')->getCollection()
+                        ->addFieldToFilter('product_id',$product->getId())
+                        ->getFirstItem();
         return $dropShipperData;
     }
     

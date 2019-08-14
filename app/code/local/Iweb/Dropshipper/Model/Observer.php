@@ -19,19 +19,21 @@ class Iweb_Dropshipper_Model_Observer extends Mage_Adminhtml_Block_Widget_Grid_C
             $order = $observer->getEvent()->getOrder();
             if($order)
             {
-                $items = $order->getAllItems();
+                $items = $order->getAllVisibleItems();
                 foreach($items as $val)
                 {
                     $id = $val->getProductId();      
                     $_product  = Mage::getModel('catalog/product')->load($id);
+                    
                     $dropshipper = Mage::getModel('iweb_dropshipper/product')->getDropshipper($_product);
-                    if($_product ->getTypeId() == Mage_Catalog_Model_Product_Type::TYPE_SIMPLE && $dropshipper)
+                    if($_product ->getTypeId() == Mage_Catalog_Model_Product_Type::TYPE_SIMPLE && $dropshipper->getId())
                     {
-                         $data['dshipper_id'] = $dropshipper->getDshipperId();
+                         $data['dshipper_id'] = $dropshipper->getDshipperId();                         
                          $data['item_id'] = $val->getId();
                          $model = Mage::getModel('iweb_dropshipper/order');    
                          $model->setData($data);
                          $model->save();
+                         
                     }         
                 }
             }
@@ -58,6 +60,7 @@ class Iweb_Dropshipper_Model_Observer extends Mage_Adminhtml_Block_Widget_Grid_C
                 }
             }        
         }
+        return $this;
     }
     
     public function sendMail(Varien_Event_Observer $observer)
