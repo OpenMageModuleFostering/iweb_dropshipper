@@ -24,7 +24,7 @@ class Iweb_Dropshipper_Model_Product extends Mage_Core_Model_Abstract
     
     public function updateProducts($object)
     {       
-        $productData = $object['update_data'];
+        $productData = $object['update_data']; 
         
         $newProductArray = array();
         foreach($productData as $key=>$value)

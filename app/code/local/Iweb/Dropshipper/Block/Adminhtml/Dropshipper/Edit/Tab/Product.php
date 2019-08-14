@@ -193,7 +193,7 @@ class Iweb_Dropshipper_Block_Adminhtml_Dropshipper_Edit_Tab_Product extends Mage
         if(Mage::registry('dropshipper_data')->getDshipper_id()){ 
             $products = Mage::getModel('catalog/product')->getCollection();
             $dshipper_id = Mage::registry('dropshipper_data')->getDshipper_id();        
-            $products->addAttributeToFilter('visibility',array('neq'=>1));
+            //$products->addAttributeToFilter('visibility',array('neq'=>1));
             $products->getSelect()
                      ->join(
                          array('dshipproduct'=> $products->getTable('iweb_dropshipper/product')),

@@ -15,11 +15,11 @@ class Iweb_Dropshipper_Model_Resource_Product extends Mage_Core_Model_Resource_D
     }
     
     public function saveProductRelations($dropshipper)
-    {
+    {               
         $productTable = $this->getTable('iweb_dropshipper/product');
         $readAdapter = $this->_getReadAdapter();
         $writeAdapter = $this->_getWriteAdapter();
-        $products = array_keys($dropshipper->getProducts());
+        $products = array_keys($dropshipper->getProducts());     
         $dropshipper_Id     = $dropshipper->getDshipperId();
         
         $select = $readAdapter->select()
@@ -40,7 +40,7 @@ class Iweb_Dropshipper_Model_Resource_Product extends Mage_Core_Model_Resource_D
                 )
             );
         }
-        
+            
         foreach($products as $key=>$productId){
             $data = array();
             $data['product_id']     = $productId;
