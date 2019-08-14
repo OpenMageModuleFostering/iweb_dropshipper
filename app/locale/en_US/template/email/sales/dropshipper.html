@@ -1,0 +1,83 @@
+<!--@subject Shipping Info for Order #{{var order.increment_id}} @-->
+
+<!--@styles
+body,td { color:#2f2f2f; font:11px/1.35em Verdana, Arial, Helvetica, sans-serif; }
+@-->
+
+<body style="background:#F6F6F6; font-family:Verdana, Arial, Helvetica, sans-serif; font-size:12px; margin:0; padding:0;">
+<div style="background:#F6F6F6; font-family:Verdana, Arial, Helvetica, sans-serif; font-size:12px; margin:0; padding:0;">
+    <table cellspacing="0" cellpadding="0" border="0" height="100%" width="100%">
+                <tr>
+                    <td align="center" valign="top" style="padding:20px 0 20px 0">
+                        <table bgcolor="FFFFFF" cellspacing="0" cellpadding="10" border="0" width="650" style="border:1px solid #E0E0E0;">
+                            <tr>
+                                <td valign="top">                            
+                                    <table bgcolor="FFFFFF" cellspacing="0" cellpadding="10" border="0" width="100%">
+                                        <tr>
+                                            <td align="left" valign="middle"><a href="{{store url=""}}"><img src="{{skin url="images/logo_email.gif" _area='frontend'}}" alt="{{var store.getFrontendName()}}"  style="margin-bottom:10px;" border="0"/></a></td>
+                                            <td width="300" align="right" valign="top" style="font-size:12px; color:#444; font-family:Verdana, Arial; line-height:18PX;"><strong style="font-size:14px; color:#222;">{{config path="general/store_information/address"}}</td>
+                                        </tr>
+                                    </table>                      </td>
+                            </tr>
+                            <tr>
+                              <td height="6" valign="top" bgcolor="#e0e0e0" style="margin:0; padding:0; height:6px;"></td>
+                            </tr>
+                            <tr>
+                              <td height="1" valign="top" bgcolor="#97c6e2" style="margin:0; padding:0; height:1px;"></td>
+                            </tr>
+                            <tr>
+                                <td valign="top">
+                                    <table width="100%" style="font-family:Arial, Helvetica, sans-serif; font-size:12px;">
+          <tr>
+            <td><p><b><u>SUPPLIER INFORMATION ONLY - NOT CUSTOMER</u></b> <br />
+                <br />
+                <strong style="font-size:13px">Hello {{var dropshipper_name}}</strong>, <br />
+              <br />
+              Order : <font style="font-size:14px;font-weight:bold">{{var order.increment_id}}</font> <br />
+              <br />
+              Please dispatch on our behalf to: </p>
+              <font style="font-size:12px;font-weight:bold">{{var shipping_address.firstname}} {{var shipping_address.lastname}}</font>
+              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td>{{var shipping_address.company}}</td>
+                </tr>
+                <tr>
+                  <td>{{var shipping_address.street1}} {{var shipping_address.street2}}</td>
+                </tr>
+                <tr>
+                  <td>{{var shipping_address.city}}</td>
+                </tr>
+                <tr>
+                  <td>{{var shipping_address.region}}</td>
+                </tr>
+                <tr>
+                  <td>{{var shipping_address.postcode}}</td>
+                </tr>
+                <tr>
+                  <td>{{var shipping_address.telephone}}</td>
+                </tr>
+                <tr>
+                  <td>{{var shipping_address.email}} </td>
+                </tr>
+              </table>
+              <p>
+                Shipping Method:&nbsp;&nbsp;{{var order.shipping_description}}<br />
+                Shipping Note:&nbsp;&nbsp;{{var order.shipping_note}}<br />
+                Special Delivery Notes:&nbsp;&nbsp;{{var order.customer_note}}
+              </p>
+              
+              
+              {{layout handle="iweb_dropshipper_email_items" items=$items}}
+              
+              </td>
+          </tr>
+        </table>
+        </td>
+        </tr>           
+        </table>
+        </td>
+        </tr>
+    </table>
+</div>
+</body>
+
