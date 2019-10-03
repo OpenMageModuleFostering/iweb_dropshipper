@@ -1,17 +1,5 @@
 {
-    "name": "OpenMageModuleFostering/Iweb_Dropshipper",
-    "type": "magento-module",
-    "license": "OSL-v3.0",
-    "homepage": "",
-    "description": "This Module is used to assign item to dropshipper.When order get Placed then admin can send Dropshipper mail from admin or can send mail automatically by selecting option from admin To Notify Dropshipper That Your item has been Placed with Shiping Info.
-",
-    "authors": [
-    {
-        "name": "sujit",
-        "email": "suju.eathen@gmail.com"
-    }
-],
-    "suggest": {
-        "magento-hackathon/magento-composer-installer": "*"
-    }
+    "keywords": [
+        "openmage-module"
+    ]
 }
